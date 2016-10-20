@@ -16,7 +16,8 @@ git:
 before_install:
   - if [ -f ${DOCKER_CACHE_FILE} ]; then gunzip -c ${DOCKER_CACHE_FILE} | docker load; fi
   - git submodule update --init --recursive || true
-  - git submodule foreach git checkout master
+  - git submodule foreach git stash
+  - git submodule foreach git rebase
   - du -a src/open_nsfw
   
 env:
