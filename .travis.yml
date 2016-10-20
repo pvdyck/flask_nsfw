@@ -26,6 +26,6 @@ env:
 
 install:
   - cd scripts
-  - ./flask_nsfw build
+  - ./flask_nsfw build >> /dev/null
   - ./flask_nsfw test
   - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname ${DOCKER_CACHE_FILE}) ; docker save $(docker history -q ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE}; fi
