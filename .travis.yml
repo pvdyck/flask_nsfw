@@ -10,7 +10,8 @@ git:
 
 # use sed to replace the SSH URL with the public URL, then init and update submodules
 before_install:
-  - git submodule foreach git pull origin master
+  - git submodule update --init --recursive || true
+  - git submodule foreach git checkout master
   - du -a src/open_nsfw
   - scripts/flask_nsfw build
 
