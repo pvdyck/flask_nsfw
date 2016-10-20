@@ -1,0 +1,12 @@
+sudo: required
+
+#language: ruby
+
+services:
+  - docker
+
+before_install:
+- scripts/flask_nsfw build
+
+test:
+- scripts/flask_nsfw test
