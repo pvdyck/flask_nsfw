@@ -1,3 +1,3 @@
 [submodule "open_nsfw"]
 	path = src/open_nsfw
-	url = https://github.com/yahoo/open_nsfw.git
+	url = https://github.com/pvdyck/open_nsfw.git
