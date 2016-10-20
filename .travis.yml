@@ -14,7 +14,7 @@ before_install:
   - git submodule foreach git checkout master
   - du -a src/open_nsfw
   - cd scripts
-  - flask_nsfw build
+  - ./flask_nsfw build
 
 install:
-- flask_nsfw test
+- ./flask_nsfw test
