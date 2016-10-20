@@ -1,5 +1,7 @@
 sudo: required
 
+language: ruby
+
 services:
   - docker
   
@@ -10,9 +12,7 @@ git:
 before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
+  - scripts/flask_nsfw build
 
-before_install:
-- scripts/flask_nsfw build
-
-test:
+install:
 - scripts/flask_nsfw test
