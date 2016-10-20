@@ -1,9 +1,15 @@
 sudo: required
 
-#language: ruby
-
 services:
   - docker
+  
+git:
+  submodules: false
+
+# use sed to replace the SSH URL with the public URL, then init and update submodules
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
 
 before_install:
 - scripts/flask_nsfw build
