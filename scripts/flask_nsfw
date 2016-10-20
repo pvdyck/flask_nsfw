@@ -30,7 +30,6 @@ main () {
 dispatch () {
   case "$1" in
     build)
-      docker build -t caffe:cpu https://raw.githubusercontent.com/BVLC/caffe/master/docker/standalone/cpu/Dockerfile
       docker build -t $NAME -f Dockerfile ..
       ;;
     test)
